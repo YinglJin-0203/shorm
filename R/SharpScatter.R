@@ -13,14 +13,13 @@
 #' @importFrom ggplot2 geom_text
 #' @importFrom ggplot2 scale_x_continuous
 #' @importFrom ggplot2 scale_y_continuous
+#' @importFrom ggplot2 coord_cartesian
+#' @importFrom ggplot2 .pt
 #' @importFrom scales trans_new
-#'
-#'
-#'
 #'
 #' @param pinc,pdec,pconc,pconv SHARP test p-values corresponding to increasing, decreasing, concave and convex
 #' @param alpha significance threshold. alpha=NULL corresponding to no significance threshold
-#' @param scale how axis should be scaled for better visual presentation. Choose between none, log and linear. Please see details for the transformation fomula.
+#' @param scale how axis should be scaled for better visual presentation. Choose between "none", "log" and "linear". See Details for the transformation fomula.
 #' @param label labels of the point to visualize. label=NULL means no labeling.
 #' @param size_point,size_label the size of points and label. size_lable is used when label is not NULL.
 #' @param ... additional parameters passed to ggplot
@@ -39,16 +38,13 @@
 #'
 #' When scale = "linear", a piece-wise linear transformation is implemented:
 #' \deqn{f(x) = 1-0.5\frac{(1-|x|)}{\alpha}I(|x|>1-\alpha)+\frac{0.5|x|}{1-\alpha}I(|x| \leq \alpha)}
-#' In both case, the significant and insignificant regions are also evenly divided in each test.
+#' In both cases, the significant and insignificant regions are also evenly divided in each test.
+
 #'
 #' @export
 #' @examples
 #' # Simulate dose-response data
-#' x <- seq(0, 1, length.out = 48)
 #' y <- 2*sqrt(x)+rnorm(48)
-#' y[17:32] <- y[17:32]+0.5
-#' y[33:48] <- y[33:48]+1
-#' curve <- data.frame(x, y)
 #' curve$rep <- rep(1:3, each = 16)
 #'
 #' # Fixed-model based test

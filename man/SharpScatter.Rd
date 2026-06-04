@@ -22,7 +22,7 @@ SharpScatter(
 
 \item{alpha}{significance threshold. alpha=NULL corresponding to no significance threshold}
 
-\item{scale}{how axis should be scaled for better visual presentation. Choose between none, log and linear. Please see details for the transformation fomula.}
+\item{scale}{how axis should be scaled for better visual presentation. Choose between "none", "log" and "linear". See Details for the transformation fomula.}
 
 \item{label}{labels of the point to visualize. label=NULL means no labeling.}
 
@@ -52,7 +52,7 @@ Axis can be scaled for better visual presentation. When scale = "log", a log-bas
 
 When scale = "linear", a piece-wise linear transformation is implemented:
 \deqn{f(x) = 1-0.5\frac{(1-|x|)}{\alpha}I(|x|>1-\alpha)+\frac{0.5|x|}{1-\alpha}I(|x| \leq \alpha)}
-In both case, the significant and insignificant regions are also evenly divided in each test.
+In both cases, the significant and insignificant regions are also evenly divided in each test.
 }
 \examples{
 # Simulate dose-response data
